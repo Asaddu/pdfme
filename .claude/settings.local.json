@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm ls:*)",
+      "WebSearch",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm dlx:*)",
+      "Bash(pnpm remove:*)",
+      "Bash(pnpm lint:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
