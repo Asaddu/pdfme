@@ -3,9 +3,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import crypto from 'crypto';
 import pLimit from 'p-limit';
-import { generate } from '@pdfme/generator/cjs/src/index.js';
-import { pdf2img } from '@pdfme/converter/cjs/src/index.node.js';
-import { getInputFromTemplate, getDefaultFont } from '@pdfme/common/cjs/src/index.js';
+import { generate } from '@pdfme/generator';
+import { pdf2img } from '@pdfme/converter/index.node.js';
+import { getInputFromTemplate, getDefaultFont } from '@pdfme/common';
 import {
   multiVariableText,
   text,
@@ -22,7 +22,7 @@ import {
   select,
   checkbox,
   radioGroup,
-} from '@pdfme/schemas/cjs/src/index.js';
+} from '@pdfme/schemas';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
