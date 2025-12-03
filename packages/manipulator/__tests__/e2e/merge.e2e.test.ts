@@ -1,6 +1,5 @@
 import { merge } from '../../src/index';
 import { pdfToImages, loadTestPDF } from '../test-helpers';
-import 'jest-image-snapshot';
 
 describe('E2E: merge', () => {
   const aPdf = loadTestPDF('a.pdf');

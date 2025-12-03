@@ -42,52 +42,24 @@
     "build:node": "tsc -p tsconfig.node.json",
     "clean": "rimraf dist",
     "lint": "eslint --ext .ts src --config eslint.config.mjs",
-    "test": "jest",
-    "test:update-snapshots": "jest --updateSnapshot",
+    "test": "vitest run",
+    "test:update-snapshots": "vitest run -u",
     "prune": "ts-prune src",
     "prettier": "prettier --write 'src/**/*.ts'"
   },
   "dependencies": {
-    "@pdfme/pdf-lib": "*",
+    "@pdfme/pdf-lib": "workspace:*",
     "fontkit": "^2.0.2"
   },
   "devDependencies": {
-    "@pdfme/common": "*",
-    "@pdfme/converter": "*",
-    "@pdfme/schemas": "*"
+    "@pdfme/common": "workspace:*",
+    "@pdfme/converter": "workspace:*",
+    "@pdfme/schemas": "workspace:*",
+    "@types/fontkit": "^2.0.8"
   },
   "peerDependencies": {
     "@pdfme/common": "workspace:*",
     "@pdfme/schemas": "workspace:*"
-  },
-  "jest": {
-    "resolver": "ts-jest-resolver",
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup.js"
-    ],
-    "moduleNameMapper": {
-      "^@pdfme/schemas/utils$": "<rootDir>/../schemas/src/utils.ts",
-      "^.+\\\\.(css|less|scss)$": "identity-obj-proxy"
-    },
-    "transformIgnorePatterns": [
-      "/node_modules/(?!(air-datepicker)/)"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "ts"
-    ],
-    "transform": {
-      "^.+\\.ts?$": [
-        "ts-jest",
-        {
-          "tsconfig": "tsconfig.esm.json"
-        }
-      ],
-      "^.+\\.css$": "<rootDir>/__tests__/cssTransform.cjs"
-    },
-    "testMatch": [
-      "**/*.test.ts"
-    ]
   },
   "publishConfig": {
     "access": "public"

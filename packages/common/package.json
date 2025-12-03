@@ -43,37 +43,19 @@
     "build:node": "tsc -p tsconfig.node.json",
     "clean": "rimraf dist",
     "lint": "eslint --ext .ts src --config eslint.config.mjs",
-    "test": "jest",
+    "test": "vitest run",
     "prune": "ts-prune src",
     "prettier": "prettier --write 'src/**/*.ts'"
   },
   "dependencies": {
-    "@pdfme/pdf-lib": "*",
+    "@pdfme/pdf-lib": "workspace:*",
     "acorn": "^8.15.0",
     "buffer": "^6.0.3",
     "zod": "^4.1.12"
   },
   "peerDependencies": {
-    "antd": "^5.11.2",
-    "form-render": "^2.2.20"
-  },
-  "jest": {
-    "resolver": "ts-jest-resolver",
-    "moduleFileExtensions": [
-      "js",
-      "ts"
-    ],
-    "transform": {
-      "^.+\\.ts?$": [
-        "ts-jest",
-        {
-          "tsconfig": "tsconfig.esm.json"
-        }
-      ]
-    },
-    "testMatch": [
-      "**/*.test.ts"
-    ]
+    "antd": "^6.0.1",
+    "form-render": "^2.5.6"
   },
   "publishConfig": {
     "access": "public"

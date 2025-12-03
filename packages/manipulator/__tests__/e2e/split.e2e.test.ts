@@ -1,6 +1,5 @@
 import { split } from '../../src/index';
 import { pdfToImages, loadTestPDF } from '../test-helpers';
-import 'jest-image-snapshot';
 
 describe('E2E: split', () => {
   const fiveP = loadTestPDF('5p.pdf');

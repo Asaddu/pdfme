@@ -3,7 +3,6 @@ import { other } from './assets/templates/index.js';
 import { getInputFromTemplate } from '@pdfme/common';
 import { text, image, svg, line, rectangle, ellipse, barcodes } from '@pdfme/schemas';
 import { getFont, pdfToImages } from './utils.js';
-import 'jest-image-snapshot';
 
 const signature = {
   pdf: image.pdf,

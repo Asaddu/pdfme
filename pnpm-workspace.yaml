@@ -6,6 +6,8 @@ packages:
   - packages/generator
   - packages/manipulator
   - packages/ui
+  - playground
 
 onlyBuiltDependencies:
+  - canvas
   - unrs-resolver

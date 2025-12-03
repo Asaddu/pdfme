@@ -1,9 +1,5 @@
-/**
- * @jest-environment jsdom
- */
 import React from 'react';
 import { render, act, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import Designer from '../../src/components/Designer/index.js';
 import {
   I18nContext,

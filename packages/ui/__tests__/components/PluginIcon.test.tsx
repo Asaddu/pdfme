@@ -1,15 +1,12 @@
-/**
- * @jest-environment jsdom
- */
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { vi, describe, test, expect, beforeEach } from 'vitest';
 import PluginIcon from '../../src/components/Designer/PluginIcon';
 import { Plugin, Schema } from '@pdfme/common';
 import { OptionsContext } from '../../src/contexts';
 
 // Mock Ant Design theme
-jest.mock('antd', () => ({
+vi.mock('antd', () => ({
   theme: {
     useToken: () => ({ token: { colorText: '#000' } })
   }
@@ -51,7 +48,7 @@ const renderPluginIcon = (
 describe('PluginIcon Security Tests', () => {
   beforeEach(() => {
     // Clear any previous DOM purify configurations
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   test('renders safe SVG icon correctly', () => {

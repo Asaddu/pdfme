@@ -15,7 +15,6 @@ import {
 import { getFont, pdfToImages } from './utils.js';
 import * as fs from 'fs';
 import * as path from 'path';
-import 'jest-image-snapshot';
 
 const signature = {
   pdf: image.pdf,

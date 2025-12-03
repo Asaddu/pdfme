@@ -18,8 +18,15 @@ import { theme, Typography, Button, Divider } from 'antd';
 import AlignWidget from './AlignWidget.js';
 import WidgetRenderer from './WidgetRenderer.js';
 import ButtonGroupWidget from './ButtonGroupWidget.js';
-import { InternalNamePath, ValidateErrorEntity } from 'rc-field-form/es/interface.js';
 import { SidebarBody, SidebarFrame, SidebarHeader, SIDEBAR_H_PADDING_PX } from '../layout.js';
+
+// Types from rc-field-form/es/interface (defined locally to avoid import issues)
+type InternalNamePath = (string | number)[];
+interface ValidateErrorEntity<Values = unknown> {
+  values: Values;
+  errorFields: { name: InternalNamePath; errors: string[] }[];
+  outOfDate: boolean;
+}
 
 // Import FormRender as a default import
 import FormRenderComponent from 'form-render';

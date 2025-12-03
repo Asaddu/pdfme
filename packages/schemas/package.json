@@ -50,46 +50,33 @@
     "build:node": "tsc -p tsconfig.node.json",
     "clean": "rimraf dist",
     "lint": "eslint --ext .ts src --config eslint.config.mjs",
-    "test": "jest",
+    "test": "vitest run",
     "prune": "ts-prune src",
     "prettier": "prettier --write 'src/**/*.ts'"
   },
   "dependencies": {
-    "@pdfme/pdf-lib": "*",
+    "@pdfme/pdf-lib": "workspace:*",
     "air-datepicker": "^3.6.0",
     "bwip-js": "^4.7.0",
     "date-fns": "^4.1.0",
     "fontkit": "^2.0.2",
-    "lucide": "^0.552.0"
+    "lucide": "^0.555.0"
   },
   "devDependencies": {
-    "@pdfme/common": "*",
+    "@pdfme/common": "workspace:*",
     "@types/bwip-js": "^3.2.1",
     "@types/fontkit": "^2.0.8",
     "@types/pngjs": "^6.0.2",
+    "@types/react": "^19.2.7",
+    "antd": "^6.0.1",
+    "csstype": "^3.2.3",
+    "form-render": "^2.5.6",
     "jsqr": "^1.4.0",
-    "pngjs": "^7.0.0"
+    "pngjs": "^7.0.0",
+    "react": "^19.2.0"
   },
   "peerDependencies": {
     "@pdfme/common": "workspace:*"
-  },
-  "jest": {
-    "resolver": "ts-jest-resolver",
-    "moduleFileExtensions": [
-      "js",
-      "ts"
-    ],
-    "transform": {
-      "^.+\\.ts?$": [
-        "ts-jest",
-        {
-          "tsconfig": "tsconfig.esm.json"
-        }
-      ]
-    },
-    "testMatch": [
-      "**/*.test.ts"
-    ]
   },
   "publishConfig": {
     "access": "public"

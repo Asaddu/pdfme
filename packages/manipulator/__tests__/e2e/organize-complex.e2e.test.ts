@@ -1,6 +1,5 @@
 import { organize } from '../../src/index';
 import { pdfToImages, loadTestPDF } from '../test-helpers';
-import 'jest-image-snapshot';
 
 describe('E2E: organize (complex operations)', () => {
   const fiveP = loadTestPDF('5p.pdf');

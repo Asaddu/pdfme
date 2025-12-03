@@ -77,7 +77,7 @@ export const preprocessing = async (arg: { template: Template; userPlugins: Plug
   const staticSchema: Schema[] = isBlankPdf(basePdf) ? (basePdf.staticSchema ?? []) : [];
 
   const pdfDoc = await PDFDocument.create();
-  // @ts-expect-error registerFontkit method is not in type definitions but exists at runtime
+  // @ts-expect-error fontkit types are incompatible with pdf-lib's expected Fontkit type
   pdfDoc.registerFontkit(fontkit);
 
   const plugins = pluginRegistry(
