@@ -1,17 +1,22 @@
-import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.js';
+import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 // @ts-expect-error - PDFJSWorker import is not properly typed but required for functionality
-import PDFJSWorker from 'pdfjs-dist/legacy/build/pdf.worker.js';
+import PDFJSWorker from 'pdfjs-dist/legacy/build/pdf.worker.mjs';
 import type { PDFDocumentProxy } from 'pdfjs-dist';
 import { createCanvas } from 'canvas';
 import { pdf2img as _pdf2img, Pdf2ImgOptions } from './pdf2img.js';
 import { pdf2size as _pdf2size, Pdf2SizeOptions } from './pdf2size.js';
 
 // Type definitions for pdfjs-dist
+interface DocumentInitParameters {
+  data: ArrayBuffer | Uint8Array;
+  isEvalSupported?: boolean;
+}
+
 interface PDFJSStatic {
   GlobalWorkerOptions?: {
     workerSrc: string;
   };
-  getDocument: (src: ArrayBuffer | Uint8Array | { data: ArrayBuffer | Uint8Array }) => {
+  getDocument: (src: ArrayBuffer | Uint8Array | DocumentInitParameters) => {
     promise: Promise<PDFDocumentProxy>;
   };
 }
@@ -21,12 +26,12 @@ interface PDFJSModule {
   GlobalWorkerOptions?: {
     workerSrc: string;
   };
-  getDocument?: (src: ArrayBuffer | Uint8Array | { data: ArrayBuffer | Uint8Array }) => {
+  getDocument?: (src: ArrayBuffer | Uint8Array | DocumentInitParameters) => {
     promise: Promise<PDFDocumentProxy>;
   };
 }
 
-const pdfjsModule = pdfjsLib as PDFJSModule;
+const pdfjsModule = pdfjsLib as unknown as PDFJSModule;
 
 // Check if GlobalWorkerOptions exists before setting workerSrc
 if (pdfjsModule.GlobalWorkerOptions) {
