@@ -1,0 +1,139 @@
+{
+  "repository_type": "monorepo",
+  "package_manager": "pnpm",
+  "workspace_config": "pnpm-workspace.yaml",
+  "parts": [
+    {
+      "part_id": "pdf-lib",
+      "name": "@pdfme/pdf-lib",
+      "type": "library",
+      "path": "packages/pdf-lib",
+      "description": "Forked pdf-lib with CJK font support",
+      "dependencies": [],
+      "dependents": ["common", "converter", "schemas", "manipulator"]
+    },
+    {
+      "part_id": "common",
+      "name": "@pdfme/common",
+      "type": "library",
+      "path": "packages/common",
+      "description": "Core types, utilities, and validation",
+      "dependencies": ["pdf-lib"],
+      "dependents": ["converter", "schemas", "generator", "ui"]
+    },
+    {
+      "part_id": "converter",
+      "name": "@pdfme/converter",
+      "type": "library",
+      "path": "packages/converter",
+      "description": "PDF format conversion utilities",
+      "dependencies": ["common", "pdf-lib"],
+      "dependents": ["ui"]
+    },
+    {
+      "part_id": "schemas",
+      "name": "@pdfme/schemas",
+      "type": "library",
+      "path": "packages/schemas",
+      "description": "Built-in field type plugins",
+      "dependencies": ["common", "pdf-lib"],
+      "dependents": ["generator", "ui"]
+    },
+    {
+      "part_id": "generator",
+      "name": "@pdfme/generator",
+      "type": "library",
+      "path": "packages/generator",
+      "description": "PDF generation from templates",
+      "dependencies": ["common", "schemas", "pdf-lib"],
+      "dependents": ["playground"]
+    },
+    {
+      "part_id": "manipulator",
+      "name": "@pdfme/manipulator",
+      "type": "library",
+      "path": "packages/manipulator",
+      "description": "PDF operations (merge, split, rotate)",
+      "dependencies": ["pdf-lib"],
+      "dependents": ["playground"]
+    },
+    {
+      "part_id": "ui",
+      "name": "@pdfme/ui",
+      "type": "library",
+      "path": "packages/ui",
+      "description": "React UI components (Designer, Form, Viewer)",
+      "dependencies": ["common", "schemas", "converter"],
+      "dependents": ["playground"]
+    },
+    {
+      "part_id": "playground",
+      "name": "playground",
+      "type": "web",
+      "path": "playground",
+      "description": "Interactive demo and testing application",
+      "dependencies": ["common", "converter", "generator", "manipulator", "schemas", "ui"],
+      "dependents": []
+    },
+    {
+      "part_id": "website",
+      "name": "website",
+      "type": "web",
+      "path": "website",
+      "description": "Documentation site (Docusaurus)",
+      "dependencies": [],
+      "dependents": []
+    }
+  ],
+  "integration_points": [
+    {
+      "from": "common",
+      "to": "pdf-lib",
+      "type": "direct_dependency",
+      "description": "Imports PDF types and document classes"
+    },
+    {
+      "from": "schemas",
+      "to": "common",
+      "type": "peer_dependency",
+      "description": "Implements Plugin interface, uses types"
+    },
+    {
+      "from": "generator",
+      "to": "common",
+      "type": "peer_dependency",
+      "description": "Uses validation, dynamic templates, expressions"
+    },
+    {
+      "from": "generator",
+      "to": "schemas",
+      "type": "peer_dependency",
+      "description": "Calls schema pdf render functions"
+    },
+    {
+      "from": "ui",
+      "to": "common",
+      "type": "peer_dependency",
+      "description": "Uses types, validation, utilities"
+    },
+    {
+      "from": "ui",
+      "to": "schemas",
+      "type": "peer_dependency",
+      "description": "Calls schema ui render functions"
+    },
+    {
+      "from": "ui",
+      "to": "converter",
+      "type": "direct_dependency",
+      "description": "Converts PDFs for preview"
+    }
+  ],
+  "build_order": [
+    "pdf-lib",
+    "common",
+    "converter",
+    "schemas",
+    ["generator", "ui", "manipulator"]
+  ]
+}

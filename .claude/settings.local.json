@@ -24,9 +24,16 @@
       "WebFetch(domain:autoform.vantezzen.io)",
       "Bash(npm view:*)",
       "WebFetch(domain:ui.shadcn.com)",
-      "WebFetch(domain:formedible.dev)"
+      "WebFetch(domain:formedible.dev)",
+      "Bash(bash:*)",
+      "mcp__agentvibes__get_config",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "agentvibes"
+  ]
 }

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "agentvibes": {
+      "command": "pwsh",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "--package=agentvibes",
+        "agentvibes-mcp-server"
+      ]
+    }
+  }
+}

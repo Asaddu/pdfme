@@ -7,6 +7,7 @@ packages:
   - packages/manipulator
   - packages/ui
   - playground
+  - website
 
 onlyBuiltDependencies:
   - canvas
