@@ -9,10 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(({ mode }) => {
   return {
-    define: {
-      'process.env.NODE_ENV': JSON.stringify(mode),
-      global: 'globalThis',
-    },
+    define: { 'process.env.NODE_ENV': JSON.stringify(mode) },
     plugins: [react(), tsconfigPaths({ root: '.' }), cssInjectedByJsPlugin()],
     resolve: {
       alias: {
@@ -25,18 +22,10 @@ export default defineConfig(({ mode }) => {
         name: '@pdfme/ui',
         fileName: (format) => `index.${format}.js`,
       },
-      commonjsOptions: {
-        transformMixedEsModules: true,
-      },
     },
     optimizeDeps: {
-      include: ['react', 'react-dom', 'pdfjs-dist', 'antd', 'buffer'],
+      include: ['react', 'react-dom', 'pdfjs-dist', 'antd'],
       exclude: ['@pdfme/common', '@pdfme/schemas', '@pdfme/converter'],
-      esbuildOptions: {
-        define: {
-          global: 'globalThis',
-        },
-      },
     },
   };
 });

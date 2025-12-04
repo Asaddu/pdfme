@@ -269,22 +269,22 @@ _Space for notes/walkback_
   - pnpm requires explicit declaration
 
 ### Risk Assessment
-- **Medium risk for buffer**: This is a pnpm-specific workaround
-- If we switch to npm, this becomes unnecessary (but harmless)
+- **Low risk**: buffer is a well-established polyfill package
+- Required because `@pdfme/schemas` uses `import { Buffer } from 'buffer'`
 
 ### Decision
-- [ ] Approve
+- [x] Approve - **REQUIRED** (tested: build fails without it)
 - [ ] Reject
 - [ ] Modify
 
 ### Feedback
-_Space for notes/walkback_
+Tested 2025-12-04: Removing buffer dependency causes build failure.
 
 ---
 
 ## 6. `packages/ui/vite.config.mts`
 
-### Our Change
+### Our Change (SIMPLIFIED after testing)
 ```diff
  import { defineConfig } from 'vite';
  import react from '@vitejs/plugin-react';
@@ -297,11 +297,7 @@ _Space for notes/walkback_
 
  export default defineConfig(({ mode }) => {
    return {
--    define: { 'process.env.NODE_ENV': JSON.stringify(mode) },
-+    define: {
-+      'process.env.NODE_ENV': JSON.stringify(mode),
-+      global: 'globalThis',
-+    },
+     define: { 'process.env.NODE_ENV': JSON.stringify(mode) },
      plugins: [react(), tsconfigPaths({ root: '.' }), cssInjectedByJsPlugin()],
 +    resolve: {
 +      alias: {
@@ -311,24 +307,13 @@ _Space for notes/walkback_
      build: {
        lib: {
          entry: 'src/index.ts',
--        formats: ['es'],
--        fileName: () => 'index.js',
-+        name: '@pdfme/ui',
-+        fileName: (format) => `index.${format}.js`,
+         name: '@pdfme/ui',
+         fileName: (format) => `index.${format}.js`,
        },
-+      commonjsOptions: {
-+        transformMixedEsModules: true,
-+      },
      },
      optimizeDeps: {
--      include: ['react', 'react-dom', 'pdfjs-dist', 'antd'],
-+      include: ['react', 'react-dom', 'pdfjs-dist', 'antd', 'buffer'],
+       include: ['react', 'react-dom', 'pdfjs-dist', 'antd'],
        exclude: ['@pdfme/common', '@pdfme/schemas', '@pdfme/converter'],
-+      esbuildOptions: {
-+        define: {
-+          global: 'globalThis',
-+        },
-+      },
      },
    };
  });
@@ -360,31 +345,41 @@ export default defineConfig(({ mode }) => {
 });
 ```
 
-### Reason for Each Change
+### Validation Tests (2025-12-04)
 
-| Change | Reason |
-|--------|--------|
-| `import path, fileURLToPath` | Needed to resolve buffer path |
-| `__dirname` definition | ESM doesn't have `__dirname`, must derive it |
-| `global: 'globalThis'` | Buffer package requires `global` object |
-| `resolve.alias.buffer` | pnpm can't find buffer without explicit path |
-| `name: '@pdfme/ui'` | **Matches upstream** - esm3 branch had removed this |
-| `fileName: (format) =>` | **Matches upstream** - esm3 had simplified this |
-| `commonjsOptions` | Handle mixed ES/CJS modules from dependencies |
-| `optimizeDeps.include: buffer` | Pre-bundle buffer for vite |
-| `esbuildOptions.global` | Buffer needs global in esbuild too |
+| Test | Config | Result |
+|------|--------|--------|
+| 2a | upstream + buffer dep only | FAILED: "Buffer" not exported |
+| 2b | upstream + buffer dep + resolve.alias | **PASSED** |
+
+### Changes Actually Required
+
+| Change | Required | Reason |
+|--------|----------|--------|
+| `import path, fileURLToPath` | Yes | Needed to resolve buffer path |
+| `__dirname` definition | Yes | ESM doesn't have `__dirname` |
+| `resolve.alias.buffer` | **Yes** | Tells Vite where to find buffer package |
+
+### Changes NOT Required (removed)
+
+| Change | Was Added | Why Not Needed |
+|--------|-----------|----------------|
+| `global: 'globalThis'` | Yes | Buffer works without it |
+| `commonjsOptions.transformMixedEsModules` | Yes | Not needed for this build |
+| `optimizeDeps.include: buffer` | Yes | Alias alone is sufficient |
+| `esbuildOptions.define.global` | Yes | Not needed |
 
 ### Why This Differs From Upstream
-- **buffer alias, global defines, commonjsOptions**: All pnpm-specific workarounds
-- **name and fileName**: Actually brought BACK to match upstream (esm3 had diverged)
+- **Only change**: `resolve.alias.buffer` to point Vite to the buffer package
+- Vite externalizes Node.js modules for browser builds by default
+- The alias tells Vite to use the `buffer` polyfill package instead
 
 ### Risk Assessment
-- **Medium risk**: Most changes are pnpm workarounds
-- **If we switch to npm**: Can remove buffer-related changes
-- **lib.name and fileName**: Low risk - matches upstream exactly
+- **Low risk**: Minimal change from upstream
+- Only adds buffer alias, everything else matches upstream
 
 ### Decision
-- [ ] Approve
+- [x] Approve - **REQUIRED** (tested: build fails without alias)
 - [ ] Reject
 - [ ] Modify
 
