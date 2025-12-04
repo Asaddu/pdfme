@@ -48,7 +48,8 @@
     "@asaddu/pdfme-common": "workspace:*",
     "@asaddu/pdfme-converter": "workspace:*",
     "@asaddu/pdfme-schemas": "workspace:*",
-    "@types/fontkit": "^2.0.8"
+    "@types/fontkit": "^2.0.8",
+    "@types/node": "^24.10.1"
   },
   "peerDependencies": {
     "@asaddu/pdfme-common": "workspace:*",
