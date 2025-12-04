@@ -1,0 +1,31 @@
+import { Position } from '../errors.js';
+import PDFArray from '../objects/PDFArray.js';
+import PDFDict from '../objects/PDFDict.js';
+import PDFHexString from '../objects/PDFHexString.js';
+import PDFName from '../objects/PDFName.js';
+import PDFNumber from '../objects/PDFNumber.js';
+import PDFObject from '../objects/PDFObject.js';
+import PDFRef from '../objects/PDFRef.js';
+import PDFStream from '../objects/PDFStream.js';
+import PDFString from '../objects/PDFString.js';
+import BaseParser from './BaseParser.js';
+import ByteStream from './ByteStream.js';
+import PDFContext from '../PDFContext.js';
+import { CipherTransformFactory } from '../crypto.js';
+declare class PDFObjectParser extends BaseParser {
+    static forBytes: (bytes: Uint8Array, context: PDFContext, capNumbers?: boolean) => PDFObjectParser;
+    static forByteStream: (byteStream: ByteStream, context: PDFContext, capNumbers?: boolean) => PDFObjectParser;
+    protected readonly context: PDFContext;
+    private readonly cryptoFactory?;
+    constructor(byteStream: ByteStream, context: PDFContext, capNumbers?: boolean, cryptoFactory?: CipherTransformFactory);
+    parseObject(ref?: PDFRef): PDFObject;
+    protected parseNumberOrRef(): PDFNumber | PDFRef;
+    protected parseHexString(ref?: PDFRef): PDFHexString;
+    protected parseString(ref?: PDFRef): PDFString;
+    protected parseName(): PDFName;
+    protected parseArray(ref?: PDFRef): PDFArray;
+    protected parseDict(ref?: PDFRef): PDFDict;
+    protected parseDictOrStream(ref?: PDFRef): PDFDict | PDFStream;
+    protected findEndOfStreamFallback(startPos: Position): number;
+}
+export default PDFObjectParser;

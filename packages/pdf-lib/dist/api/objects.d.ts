@@ -1,0 +1,4 @@
+import { PDFName, PDFNumber } from '../core/index.js';
+export declare const asPDFName: (name: string | PDFName) => PDFName;
+export declare const asPDFNumber: (num: number | PDFNumber) => PDFNumber;
+export declare const asNumber: (num: number | PDFNumber) => number;

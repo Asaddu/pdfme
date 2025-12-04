@@ -1,0 +1,84 @@
+import PDFHeader from './document/PDFHeader.js';
+import PDFArray from './objects/PDFArray.js';
+import PDFBool from './objects/PDFBool.js';
+import PDFDict from './objects/PDFDict.js';
+import PDFHexString from './objects/PDFHexString.js';
+import PDFName from './objects/PDFName.js';
+import PDFNull from './objects/PDFNull.js';
+import PDFNumber from './objects/PDFNumber.js';
+import PDFObject from './objects/PDFObject.js';
+import PDFRawStream from './objects/PDFRawStream.js';
+import PDFRef from './objects/PDFRef.js';
+import PDFStream from './objects/PDFStream.js';
+import PDFString from './objects/PDFString.js';
+import PDFOperator from './operators/PDFOperator.js';
+import PDFContentStream from './structures/PDFContentStream.js';
+import { SimpleRNG } from '../utils/rng.js';
+type LookupKey = PDFRef | PDFObject | undefined;
+interface LiteralObject {
+    [name: string]: Literal | PDFObject;
+}
+interface LiteralArray {
+    [index: number]: Literal | PDFObject;
+}
+type Literal = LiteralObject | LiteralArray | string | number | boolean | null | undefined;
+declare class PDFContext {
+    isDecrypted: boolean;
+    static create: () => PDFContext;
+    largestObjectNumber: number;
+    header: PDFHeader;
+    trailerInfo: {
+        Root?: PDFObject;
+        Encrypt?: PDFObject;
+        Info?: PDFObject;
+        ID?: PDFObject;
+    };
+    rng: SimpleRNG;
+    private readonly indirectObjects;
+    private pushGraphicsStateContentStreamRef?;
+    private popGraphicsStateContentStreamRef?;
+    private constructor();
+    assign(ref: PDFRef, object: PDFObject): void;
+    nextRef(): PDFRef;
+    register(object: PDFObject): PDFRef;
+    delete(ref: PDFRef): boolean;
+    lookupMaybe(ref: LookupKey, type: typeof PDFArray): PDFArray | undefined;
+    lookupMaybe(ref: LookupKey, type: typeof PDFBool): PDFBool | undefined;
+    lookupMaybe(ref: LookupKey, type: typeof PDFDict): PDFDict | undefined;
+    lookupMaybe(ref: LookupKey, type: typeof PDFHexString): PDFHexString | undefined;
+    lookupMaybe(ref: LookupKey, type: typeof PDFName): PDFName | undefined;
+    lookupMaybe(ref: LookupKey, type: typeof PDFNull): typeof PDFNull | undefined;
+    lookupMaybe(ref: LookupKey, type: typeof PDFNumber): PDFNumber | undefined;
+    lookupMaybe(ref: LookupKey, type: typeof PDFStream): PDFStream | undefined;
+    lookupMaybe(ref: LookupKey, type: typeof PDFRef): PDFRef | undefined;
+    lookupMaybe(ref: LookupKey, type: typeof PDFString): PDFString | undefined;
+    lookupMaybe(ref: LookupKey, type1: typeof PDFString, type2: typeof PDFHexString): PDFString | PDFHexString | undefined;
+    lookup(ref: LookupKey): PDFObject | undefined;
+    lookup(ref: LookupKey, type: typeof PDFArray): PDFArray;
+    lookup(ref: LookupKey, type: typeof PDFBool): PDFBool;
+    lookup(ref: LookupKey, type: typeof PDFDict): PDFDict;
+    lookup(ref: LookupKey, type: typeof PDFHexString): PDFHexString;
+    lookup(ref: LookupKey, type: typeof PDFName): PDFName;
+    lookup(ref: LookupKey, type: typeof PDFNull): typeof PDFNull;
+    lookup(ref: LookupKey, type: typeof PDFNumber): PDFNumber;
+    lookup(ref: LookupKey, type: typeof PDFStream): PDFStream;
+    lookup(ref: LookupKey, type: typeof PDFRef): PDFRef;
+    lookup(ref: LookupKey, type: typeof PDFString): PDFString;
+    lookup(ref: LookupKey, type1: typeof PDFString, type2: typeof PDFHexString): PDFString | PDFHexString;
+    getObjectRef(pdfObject: PDFObject): PDFRef | undefined;
+    enumerateIndirectObjects(): [PDFRef, PDFObject][];
+    obj(literal: null | undefined): typeof PDFNull;
+    obj(literal: string): PDFName;
+    obj(literal: number): PDFNumber;
+    obj(literal: boolean): PDFBool;
+    obj(literal: LiteralObject): PDFDict;
+    obj(literal: LiteralArray): PDFArray;
+    stream(contents: string | Uint8Array, dict?: LiteralObject): PDFRawStream;
+    flateStream(contents: string | Uint8Array, dict?: LiteralObject): PDFRawStream;
+    contentStream(operators: PDFOperator[], dict?: LiteralObject): PDFContentStream;
+    formXObject(operators: PDFOperator[], dict?: LiteralObject): PDFContentStream;
+    getPushGraphicsStateContentStream(): PDFRef;
+    getPopGraphicsStateContentStream(): PDFRef;
+    addRandomSuffix(prefix: string, suffixLength?: number): string;
+}
+export default PDFContext;
