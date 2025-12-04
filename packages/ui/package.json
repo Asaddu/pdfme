@@ -22,11 +22,11 @@
     "url": "https://github.com/Asaddu/pdfme/issues"
   },
   "type": "module",
-  "module": "dist/index.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/index.es.js",
       "types": "./dist/types/index.d.ts"
     }
   },
