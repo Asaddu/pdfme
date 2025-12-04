@@ -11,8 +11,8 @@ import {
   Size,
   isBlankPdf,
   PluginRegistry,
-} from '@pdfme/common';
-import { pdf2size } from '@pdfme/converter';
+} from '@asaddu/pdfme-common';
+import { pdf2size } from '@asaddu/pdfme-converter';
 import { DEFAULT_MAX_ZOOM, RULER_HEIGHT } from './constants.js';
 import { OptionsContext } from './contexts.js';
 

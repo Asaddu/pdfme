@@ -56,7 +56,7 @@ importers:
 
   packages/common:
     dependencies:
-      '@pdfme/pdf-lib':
+      '@asaddu/pdfme-pdf-lib':
         specifier: workspace:*
         version: link:../pdf-lib
       acorn:
@@ -81,17 +81,17 @@ importers:
 
   packages/converter:
     dependencies:
-      '@pdfme/common':
+      '@asaddu/pdfme-common':
         specifier: workspace:*
         version: link:../common
-      '@pdfme/pdf-lib':
+      '@asaddu/pdfme-pdf-lib':
         specifier: workspace:*
         version: link:../pdf-lib
       pdfjs-dist:
         specifier: ^5.4.449
         version: 5.4.449
     devDependencies:
-      '@pdfme/generator':
+      '@asaddu/pdfme-generator':
         specifier: workspace:*
         version: link:../generator
       '@types/estree':
@@ -104,20 +104,20 @@ importers:
 
   packages/generator:
     dependencies:
-      '@pdfme/pdf-lib':
+      '@asaddu/pdfme-pdf-lib':
         specifier: workspace:*
         version: link:../pdf-lib
       fontkit:
         specifier: ^2.0.2
         version: 2.0.4
     devDependencies:
-      '@pdfme/common':
+      '@asaddu/pdfme-common':
         specifier: workspace:*
         version: link:../common
-      '@pdfme/converter':
+      '@asaddu/pdfme-converter':
         specifier: workspace:*
         version: link:../converter
-      '@pdfme/schemas':
+      '@asaddu/pdfme-schemas':
         specifier: workspace:*
         version: link:../schemas
       '@types/fontkit':
@@ -126,11 +126,11 @@ importers:
 
   packages/manipulator:
     dependencies:
-      '@pdfme/pdf-lib':
+      '@asaddu/pdfme-pdf-lib':
         specifier: workspace:*
         version: link:../pdf-lib
     devDependencies:
-      '@pdfme/converter':
+      '@asaddu/pdfme-converter':
         specifier: workspace:*
         version: link:../converter
       '@types/estree':
@@ -167,7 +167,7 @@ importers:
 
   packages/schemas:
     dependencies:
-      '@pdfme/pdf-lib':
+      '@asaddu/pdfme-pdf-lib':
         specifier: workspace:*
         version: link:../pdf-lib
       air-datepicker:
@@ -186,7 +186,7 @@ importers:
         specifier: ^0.555.0
         version: 0.555.0
     devDependencies:
-      '@pdfme/common':
+      '@asaddu/pdfme-common':
         specifier: workspace:*
         version: link:../common
       '@types/bwip-js':
@@ -222,6 +222,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@asaddu/pdfme-converter':
+        specifier: workspace:*
+        version: link:../converter
       '@dnd-kit/core':
         specifier: ^6.0.8
         version: 6.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -231,9 +234,6 @@ importers:
       '@dnd-kit/utilities':
         specifier: ^3.2.2
         version: 3.2.2(react@18.3.1)
-      '@pdfme/converter':
-        specifier: workspace:*
-        version: link:../converter
       '@scena/react-guides':
         specifier: ^0.28.2
         version: 0.28.2
@@ -274,10 +274,10 @@ importers:
         specifier: ^1.12.0
         version: 1.26.3
     devDependencies:
-      '@pdfme/common':
+      '@asaddu/pdfme-common':
         specifier: workspace:*
         version: link:../common
-      '@pdfme/schemas':
+      '@asaddu/pdfme-schemas':
         specifier: workspace:*
         version: link:../schemas
       '@testing-library/dom':
@@ -337,27 +337,27 @@ importers:
 
   playground:
     dependencies:
+      '@asaddu/pdfme-common':
+        specifier: workspace:*
+        version: link:../packages/common
+      '@asaddu/pdfme-converter':
+        specifier: workspace:*
+        version: link:../packages/converter
+      '@asaddu/pdfme-generator':
+        specifier: workspace:*
+        version: link:../packages/generator
+      '@asaddu/pdfme-manipulator':
+        specifier: workspace:*
+        version: link:../packages/manipulator
+      '@asaddu/pdfme-schemas':
+        specifier: workspace:*
+        version: link:../packages/schemas
+      '@asaddu/pdfme-ui':
+        specifier: workspace:*
+        version: link:../packages/ui
       '@headlessui/react':
         specifier: ^2.2.0
         version: 2.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@pdfme/common':
-        specifier: workspace:*
-        version: link:../packages/common
-      '@pdfme/converter':
-        specifier: workspace:*
-        version: link:../packages/converter
-      '@pdfme/generator':
-        specifier: workspace:*
-        version: link:../packages/generator
-      '@pdfme/manipulator':
-        specifier: workspace:*
-        version: link:../packages/manipulator
-      '@pdfme/schemas':
-        specifier: workspace:*
-        version: link:../packages/schemas
-      '@pdfme/ui':
-        specifier: workspace:*
-        version: link:../packages/ui
       '@sentry/react':
         specifier: ^10.28.0
         version: 10.28.0(react@18.3.1)

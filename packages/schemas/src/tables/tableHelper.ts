@@ -6,7 +6,7 @@ import {
   getDefaultFont,
   getFallbackFontName,
   cloneDeep,
-} from '@pdfme/common';
+} from '@asaddu/pdfme-common';
 import type { Font as FontKitFont } from 'fontkit';
 import type {
   TableSchema,

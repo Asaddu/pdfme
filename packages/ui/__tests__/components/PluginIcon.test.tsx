@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { vi, describe, test, expect, beforeEach } from 'vitest';
 import PluginIcon from '../../src/components/Designer/PluginIcon';
-import { Plugin, Schema } from '@pdfme/common';
+import { Plugin, Schema } from '@asaddu/pdfme-common';
 import { OptionsContext } from '../../src/contexts';
 
 // Mock Ant Design theme

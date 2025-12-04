@@ -1,5 +1,5 @@
 import generate from '../src/generate.js';
-import { Template, BLANK_PDF, Schema } from '@pdfme/common';
+import { Template, BLANK_PDF, Schema } from '@asaddu/pdfme-common';
 import { getFont, pdfToImages } from './utils.js';
 
 describe('generate integrate test', () => {

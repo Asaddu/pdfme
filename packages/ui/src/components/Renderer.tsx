@@ -9,7 +9,7 @@ import {
   Plugin,
   UIOptions,
   cloneDeep,
-} from '@pdfme/common';
+} from '@asaddu/pdfme-common';
 import { theme as antdTheme } from 'antd';
 import { SELECTABLE_CLASSNAME } from '../constants.js';
 import { PluginsRegistry, OptionsContext, I18nContext, CacheContext } from '../contexts.js';

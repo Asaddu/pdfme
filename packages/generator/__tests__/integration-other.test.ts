@@ -1,7 +1,7 @@
 import generate from '../src/generate.js';
 import { other } from './assets/templates/index.js';
-import { getInputFromTemplate } from '@pdfme/common';
-import { text, image, svg, line, rectangle, ellipse, barcodes } from '@pdfme/schemas';
+import { getInputFromTemplate } from '@asaddu/pdfme-common';
+import { text, image, svg, line, rectangle, ellipse, barcodes } from '@asaddu/pdfme-schemas';
 import { getFont, pdfToImages } from './utils.js';
 
 const signature = {

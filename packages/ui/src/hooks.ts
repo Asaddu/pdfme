@@ -9,8 +9,8 @@ import {
   SchemaForUI,
   ChangeSchemas,
   isBlankPdf,
-} from '@pdfme/common';
-import { pdf2img, pdf2size } from '@pdfme/converter';
+} from '@asaddu/pdfme-common';
+import { pdf2img, pdf2size } from '@asaddu/pdfme-converter';
 
 import {
   schemasList2template,

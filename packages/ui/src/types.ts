@@ -1,4 +1,4 @@
-import type { SchemaForUI, Size, ChangeSchemas, BasePdf } from '@pdfme/common';
+import type { SchemaForUI, Size, ChangeSchemas, BasePdf } from '@asaddu/pdfme-common';
 
 export type SidebarProps = {
   height: number;

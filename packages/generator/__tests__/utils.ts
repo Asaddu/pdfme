@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import * as path from 'path';
-import { Font, getDefaultFont } from '@pdfme/common';
-import { pdf2img } from '@pdfme/converter';
+import { Font, getDefaultFont } from '@asaddu/pdfme-common';
+import { pdf2img } from '@asaddu/pdfme-converter';
 
 const NotoSerifJPRegularData = readFileSync(
   // path.join(__dirname, `/assets/fonts/NotoSerifJP-Regular.otf`)

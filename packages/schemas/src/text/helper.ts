@@ -9,7 +9,7 @@ import {
   getFallbackFontName,
   getDefaultFont,
   DEFAULT_FONT_NAME,
-} from '@pdfme/common';
+} from '@asaddu/pdfme-common';
 import { Buffer } from 'buffer';
 import type { TextSchema, FontWidthCalcValues } from './types.js';
 import {

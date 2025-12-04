@@ -1,4 +1,4 @@
-import type { PropPanel } from '@pdfme/common';
+import type { PropPanel } from '@asaddu/pdfme-common';
 import type { BarcodeSchema } from './types.js';
 import {
   DEFAULT_BARCODE_COLOR,

@@ -1,6 +1,6 @@
-import { SchemaForUI, Schema, Template, BLANK_PDF, BasePdf, pluginRegistry } from '@pdfme/common';
+import { SchemaForUI, Schema, Template, BLANK_PDF, BasePdf, pluginRegistry } from '@asaddu/pdfme-common';
 import { uuid, getUniqueSchemaName, schemasList2template, changeSchemas, setFontNameRecursively } from '../src/helper';
-import { text, image } from '@pdfme/schemas';
+import { text, image } from '@asaddu/pdfme-schemas';
 
 const getSchema = (): Schema => ({
   name: 'a',

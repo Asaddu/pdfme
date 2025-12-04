@@ -6,8 +6,8 @@ import {
   Size,
   getDynamicTemplate,
   replacePlaceholders,
-} from '@pdfme/common';
-import { getDynamicHeightsForTable } from '@pdfme/schemas/utils';
+} from '@asaddu/pdfme-common';
+import { getDynamicHeightsForTable } from '@asaddu/pdfme-schemas/utils';
 import UnitPager from './UnitPager.js';
 import Root from './Root.js';
 import StaticSchema from './StaticSchema.js';

@@ -1,4 +1,4 @@
-import { PDFDocument, RotationTypes } from '@pdfme/pdf-lib';
+import { PDFDocument, RotationTypes } from '@asaddu/pdfme-pdf-lib';
 
 const merge = async (pdfs: (ArrayBuffer | Uint8Array)[]): Promise<Uint8Array> => {
   if (!pdfs.length) {

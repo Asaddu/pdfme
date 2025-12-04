@@ -10,9 +10,9 @@ import {
   mm2pt,
   pluginRegistry,
   BasePdf,
-} from '@pdfme/common';
-import { builtInPlugins } from '@pdfme/schemas';
-import { PDFPage, PDFDocument, PDFEmbeddedPage, TransformationMatrix } from '@pdfme/pdf-lib';
+} from '@asaddu/pdfme-common';
+import { builtInPlugins } from '@asaddu/pdfme-schemas';
+import { PDFPage, PDFDocument, PDFEmbeddedPage, TransformationMatrix } from '@asaddu/pdfme-pdf-lib';
 import { TOOL_NAME } from './constants.js';
 import type { EmbedPdfBox } from './types.js';
 

@@ -1,5 +1,5 @@
-import * as pdfLib from '@pdfme/pdf-lib';
-import type { GenerateProps, Schema, PDFRenderProps, Template } from '@pdfme/common';
+import * as pdfLib from '@asaddu/pdfme-pdf-lib';
+import type { GenerateProps, Schema, PDFRenderProps, Template } from '@asaddu/pdfme-common';
 import {
   checkGenerateProps,
   getDynamicTemplate,
@@ -7,8 +7,8 @@ import {
   replacePlaceholders,
   pt2mm,
   cloneDeep,
-} from '@pdfme/common';
-import { getDynamicHeightsForTable } from '@pdfme/schemas';
+} from '@asaddu/pdfme-common';
+import { getDynamicHeightsForTable } from '@asaddu/pdfme-schemas';
 import {
   insertPage,
   preprocessing,

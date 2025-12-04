@@ -10,7 +10,7 @@ import {
   Size,
   isBlankPdf,
   px2mm,
-} from '@pdfme/common';
+} from '@asaddu/pdfme-common';
 import { DndContext } from '@dnd-kit/core';
 import RightSidebar from './RightSidebar/index.js';
 import LeftSidebar from './LeftSidebar.js';

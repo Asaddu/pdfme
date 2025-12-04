@@ -1,6 +1,6 @@
-import type { PropPanel } from '@pdfme/common';
+import type { PropPanel } from '@asaddu/pdfme-common';
 import type { TableSchema } from './types.js';
-import { getFallbackFontName, DEFAULT_FONT_NAME } from '@pdfme/common';
+import { getFallbackFontName, DEFAULT_FONT_NAME } from '@asaddu/pdfme-common';
 import {
   getDefaultCellStyles,
   getCellPropPanelSchema,

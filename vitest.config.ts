@@ -62,8 +62,8 @@ export default defineConfig({
           setupFiles: ['./vitest.setup.ts'],
           globals: true,
           alias: {
-            '@pdfme/converter': '../converter/src/index.node.ts',
-            '@pdfme/schemas/utils': '../schemas/src/utils.ts',
+            '@asaddu/pdfme-converter': '../converter/src/index.node.ts',
+            '@asaddu/pdfme-schemas/utils': '../schemas/src/utils.ts',
           },
           css: true,
         },

@@ -1,5 +1,5 @@
-import { PDFDocument } from '@pdfme/pdf-lib';
-import { mm2pt } from '@pdfme/common';
+import { PDFDocument } from '@asaddu/pdfme-pdf-lib';
+import { mm2pt } from '@asaddu/pdfme-common';
 import type { ImageType } from './types.js';
 
 interface Img2PdfOptions {

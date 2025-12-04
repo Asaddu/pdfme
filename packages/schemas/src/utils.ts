@@ -1,6 +1,6 @@
 import type * as CSS from 'csstype';
-import { cmyk, degrees, degreesToRadians, rgb, Color } from '@pdfme/pdf-lib';
-import { Schema, mm2pt, Mode, isHexValid, ColorType } from '@pdfme/common';
+import { cmyk, degrees, degreesToRadians, rgb, Color } from '@asaddu/pdfme-pdf-lib';
+import { Schema, mm2pt, Mode, isHexValid, ColorType } from '@asaddu/pdfme-common';
 import { IconNode } from 'lucide';
 import { getDynamicHeightsForTable as _getDynamicHeightsForTable } from './tables/dynamicTemplate.js';
 export const convertForPdfLayoutProps = ({

@@ -1,5 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
-import { pdf2img } from '@pdfme/converter';
+import { pdf2img } from '@asaddu/pdfme-converter';
 
 const viewport = { width: 1366, height: 768 };
 
