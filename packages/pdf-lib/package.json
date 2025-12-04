@@ -1,5 +1,5 @@
 {
-  "name": "@pdfme/pdf-lib",
+  "name": "@asaddu/pdfme-pdf-lib",
   "version": "0.0.0",
   "sideEffects": false,
   "author": "hand-dot",
@@ -22,10 +22,10 @@
   "homepage": "https://pdfme.com",
   "repository": {
     "type": "git",
-    "url": "git@github.com:pdfme/pdfme.git"
+    "url": "git@github.com:Asaddu/pdfme.git"
   },
   "bugs": {
-    "url": "https://github.com/pdfme/pdfme/issues"
+    "url": "https://github.com/Asaddu/pdfme/issues"
   },
   "type": "module",
   "module": "dist/index.js",
@@ -58,6 +58,7 @@
     "@types/pako": "^2.0.4"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   }
 }

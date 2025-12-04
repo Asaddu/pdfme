@@ -7,39 +7,47 @@ on:
       - main
 
 jobs:
-  publish-npm:
+  publish-github-packages:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@asaddu'
 
       - name: Increment version and append git hash
         run: ./scripts/increment-version.sh
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
-      - name: Set NPM version
-        run: npm version --no-git-tag-version $VERSION --workspaces
+      - name: Set version
+        run: pnpm -r exec npm version --no-git-tag-version $VERSION
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Test
-        run: npm run test
+        run: pnpm run test
         env:
           CI: true
 
-      - name: Publish to NPM
-        run: npm publish --workspaces --access public --tag dev
+      - name: Publish to GitHub Packages
+        run: pnpm -r publish --no-git-checks --tag dev
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   playground-test:
     runs-on: ubuntu-latest
@@ -48,20 +56,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Install dependencies and build project
         run: |
-          npm ci
-          npm run build
+          pnpm install
+          pnpm run build
 
       - name: Run playground tests
         run: |
           cd playground
-          npm install
-          npm run build
-          npm run test
+          pnpm install
+          pnpm run build
+          pnpm run test
         env:
           CI: true

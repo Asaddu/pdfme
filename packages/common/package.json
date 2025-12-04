@@ -1,5 +1,5 @@
 {
-  "name": "@pdfme/common",
+  "name": "@asaddu/pdfme-common",
   "version": "0.0.0",
   "sideEffects": false,
   "author": "hand-dot",
@@ -16,10 +16,10 @@
   "homepage": "https://pdfme.com",
   "repository": {
     "type": "git",
-    "url": "git@github.com:pdfme/pdfme.git"
+    "url": "git@github.com:Asaddu/pdfme.git"
   },
   "bugs": {
-    "url": "https://github.com/pdfme/pdfme/issues"
+    "url": "https://github.com/Asaddu/pdfme/issues"
   },
   "type": "module",
   "module": "dist/index.js",
@@ -41,7 +41,7 @@
     "prettier": "prettier --write 'src/**/*.ts'"
   },
   "dependencies": {
-    "@pdfme/pdf-lib": "workspace:*",
+    "@asaddu/pdfme-pdf-lib": "workspace:*",
     "acorn": "^8.15.0",
     "buffer": "^6.0.3",
     "zod": "^4.1.12"
@@ -51,7 +51,8 @@
     "form-render": "^2.5.6"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@types/estree": "^1.0.6"
