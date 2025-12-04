@@ -122,12 +122,12 @@ It does NOT support antd 6.x. The esm3 branch we merged had upgraded to antd 6.0
 - antd 5.29.1 is the latest 5.x version
 
 ### Decision
-- [ ] Approve
+- [x] Approve - matches upstream
 - [ ] Reject
 - [ ] Modify
 
 ### Feedback
-_Space for notes/walkback_
+Aligns with upstream. No overcorrecting needed.
 
 ---
 
@@ -214,12 +214,12 @@ Match React 18 / antd 5.x across all packages for consistency with form-render r
 - **Slightly newer than upstream**: But within same major versions
 
 ### Decision
-- [ ] Approve
+- [x] Approve - matches upstream major versions
 - [ ] Reject
 - [ ] Modify
 
 ### Feedback
-_Space for notes/walkback_
+React 18, antd 5.x - same major versions as upstream.
 
 ---
 
@@ -384,7 +384,7 @@ export default defineConfig(({ mode }) => {
 - [ ] Modify
 
 ### Feedback
-_Space for notes/walkback_
+Tested: build fails without buffer alias.
 
 ---
 
@@ -421,12 +421,12 @@ Consistent React 18 across all packages. Playground must match the library versi
 - **Not published**: Won't affect end users
 
 ### Decision
-- [ ] Approve
+- [x] Approve - consistency with library packages
 - [ ] Reject
 - [ ] Modify
 
 ### Feedback
-_Space for notes/walkback_
+Local dev tool, must match library versions.
 
 ---
 
@@ -457,7 +457,7 @@ Consistent React 18 across all packages. Website uses Docusaurus which works wit
 - **Docusaurus compatible**: 3.x works with React 18
 
 ### Decision
-- [ ] Approve
+- [x] Approve - consistency across monorepo
 - [ ] Reject
 - [ ] Modify
 
