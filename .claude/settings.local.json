@@ -27,7 +27,11 @@
       "WebFetch(domain:formedible.dev)",
       "Bash(bash:*)",
       "mcp__agentvibes__get_config",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfix(converter): update pdfjs-dist imports for v5.x ESM compatibility\n\n- Update browser entry to use ?url import for worker (Vite compatible)\n- Update node entry to use .mjs extensions for ESM modules\n- Add isEvalSupported to DocumentInitParameters interface\n- Fix canvas type in pdf2img render call\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(pnpm why:*)",
+      "Bash(pnpm run build:ui:*)"
     ],
     "deny": [],
     "ask": []

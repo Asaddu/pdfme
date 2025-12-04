@@ -47,7 +47,7 @@
     "zod": "^4.1.12"
   },
   "peerDependencies": {
-    "antd": "^6.0.1",
+    "antd": "^5.29.1",
     "form-render": "^2.5.6"
   },
   "publishConfig": {
