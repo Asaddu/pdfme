@@ -20,9 +20,7 @@
     "strict": true,
     "types": [],
     "typeRoots": [
-      "../node_modules/@types",
-      "./node_modules/@types",
-      "../../node_modules/@types"
+      "./node_modules/@types"
     ],
     "sourceMap": true,
     "baseUrl": ".",
