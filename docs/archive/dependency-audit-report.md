@@ -168,12 +168,12 @@ Our change splits into two separate execSync calls that work on all platforms.
 - **Could contribute upstream**: This would be a welcome PR to pdfme
 
 ### Decision
-- [ ] Approve
+- [x] Approve
 - [ ] Reject
 - [ ] Modify
 
 ### Feedback
-_Space for notes/walkback_
+Two execSync calls - simplest cross-platform solution. Works on Windows, Linux, Mac.
 
 ---
 
