@@ -1,9 +1,9 @@
 import * as pdfjsLib from 'pdfjs-dist';
-// @ts-expect-error - Vite ?url suffix returns the URL path to the worker file
-import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { pdf2img as _pdf2img } from './pdf2img.js';
 import { pdf2size as _pdf2size } from './pdf2size.js';
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
+// Use CDN for worker - bundler-agnostic approach that works in all environments
+// Version is derived from pdfjs-dist dependency (^5.4.449 -> use 5.x latest)
+pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@5/build/pdf.worker.min.mjs`;
 function dataURLToArrayBuffer(dataURL) {
     // Split out the actual base64 string from the data URL scheme
     const base64String = dataURL.split(',')[1];
