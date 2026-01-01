@@ -55,7 +55,7 @@
     "@asaddu/pdfme-common": "workspace:*",
     "@types/bwip-js": "^3.2.1",
     "@types/fontkit": "^2.0.8",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.0.3",
     "@types/pngjs": "^6.0.2",
     "@types/react": "^18.3.18",
     "antd": "^5.29.1",
