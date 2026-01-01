@@ -49,7 +49,7 @@
     "@vitest/browser-playwright": "^4.0.15",
     "@vitest/coverage-v8": "^4.0.15",
     "jest-image-snapshot": "^6.5.1",
-    "jsdom": "^27.2.0",
+    "jsdom": "^27.4.0",
     "npm-run-all": "^4.1.5",
     "oxlint": "^1.31.0",
     "oxlint-tsgolint": "^0.8.3",
