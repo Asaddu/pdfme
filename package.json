@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.0.3",
     "@vitest/browser-playwright": "^4.0.15",
     "@vitest/coverage-v8": "^4.0.15",
     "jest-image-snapshot": "^6.5.1",
