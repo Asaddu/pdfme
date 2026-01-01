@@ -65,7 +65,7 @@
     "@asaddu/pdfme-schemas": "workspace:*",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.8.0",
-    "@testing-library/react": "^16.3.0",
+    "@testing-library/react": "^16.3.1",
     "@types/dompurify": "^3.2.0",
     "@types/node": "^24.10.1",
     "@types/react": "^18.3.18",
