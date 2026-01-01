@@ -27,7 +27,7 @@
     "canvas": "^3.2.0",
     "esbuild": "^0.27.0",
     "lucide-react": "^0.555.0",
-    "react": "^18.3.1",
+    "react": "^19.2.3",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.10.0",
     "react-toastify": "^11.0.3",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
-    "@types/react": "^18.3.18",
+    "@types/react": "^19.2.7",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.20",
