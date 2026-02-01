@@ -50,10 +50,10 @@
     "@asaddu/pdfme-generator": "workspace:*",
     "@types/estree": "^1.0.6",
     "@types/node": "^24.10.1",
-    "canvas": "^3.2.0"
+    "canvas": "^3.2.1"
   },
   "optionalDependencies": {
-    "canvas": "^3.2.0"
+    "canvas": "^3.2.1"
   },
   "publishConfig": {
     "access": "restricted",
