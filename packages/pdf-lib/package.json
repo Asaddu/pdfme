@@ -59,7 +59,7 @@
     "@types/pako": "^2.0.4"
   },
   "publishConfig": {
-    "access": "restricted",
+    "access": "public",
     "registry": "https://npm.pkg.github.com"
   }
 }
