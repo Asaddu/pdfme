@@ -22,7 +22,7 @@
     "@asaddu/pdfme-manipulator": "workspace:*",
     "@asaddu/pdfme-schemas": "workspace:*",
     "@asaddu/pdfme-ui": "workspace:*",
-    "@sentry/react": "^10.28.0",
+    "@sentry/react": "^10.32.1",
     "@sentry/vite-plugin": "^4.6.1",
     "canvas": "^3.2.0",
     "esbuild": "^0.27.0",
