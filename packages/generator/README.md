@@ -1,4 +1,6 @@
-## @pdfme/generator
+## @asaddu/pdfme-generator
+
+> Fork of [@pdfme/generator](https://www.npmjs.com/package/@pdfme/generator) maintained by [Asaddu](https://github.com/Asaddu/pdfme).
 
 This library provides the `generate` function for creating PDF files using templates and inputs.
 

@@ -1,6 +1,6 @@
 {
   "name": "@asaddu/pdfme-common",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "sideEffects": false,
   "author": "hand-dot",
   "license": "MIT",
@@ -52,7 +52,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
     "@types/estree": "^1.0.6",

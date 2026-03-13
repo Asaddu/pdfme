@@ -1,6 +1,6 @@
-# @pdfme/pdf-lib
+# @asaddu/pdfme-pdf-lib
 
-This version is forked from [Hopding/pdf-lib](https://github.com/Hopding/pdf-lib).  
+> Fork of [@pdfme/pdf-lib](https://www.npmjs.com/package/@pdfme/pdf-lib) maintained by [Asaddu](https://github.com/Asaddu/pdfme). Originally forked from [Hopding/pdf-lib](https://github.com/Hopding/pdf-lib).  
 Incorporated several bug fixes and additional features into the original code.
 
  <details>
