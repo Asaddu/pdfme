@@ -44,7 +44,7 @@
   "dependencies": {
     "@asaddu/pdfme-common": "workspace:*",
     "@asaddu/pdfme-pdf-lib": "workspace:*",
-    "pdfjs-dist": "^5.4.449"
+    "pdfjs-dist": "^5.4.530"
   },
   "devDependencies": {
     "@asaddu/pdfme-generator": "workspace:*",
